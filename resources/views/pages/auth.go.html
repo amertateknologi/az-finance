@@ -2,9 +2,9 @@
 <main class="form-signin w-100 m-auto" style="padding-top: calc(50vh - 225px);">
     <form action="/auth/sign-in" method="post" enctype="application/x-www-form-urlencoded">
         <a class="d-block" style="text-align: center;" href="/"><img loading="lazy" src="/images/logo.png" height="57" class="mb-5"/></a>
-        <input name="email" type="email" class="form-control fs-4 pt-3 pb-3" id="floatingInput" placeholder="Email" />
-        <input name="password" type="password" class="form-control fs-4 pt-3 pb-3" id="floatingPassword" placeholder="Password" />
-        <button class="btn btn-main w-100 py-2 mt-3 fs-4" type="submit">Sign in</button>
+        <input name="email" type="email" class="form-control pt-3 mt-0 pb-3 fs-3" id="floatingInput" placeholder="Email" />
+        <input name="password" type="password" class="form-control pt-3 pb-3 fs-3" id="floatingPassword" placeholder="Password" />
+        <button class="btn btn-main w-100 p-3 mt-5" type="submit" style="font-size: 1.6rem;">Sign in</button>
     </form>
 </main>
 {{template "layouts/blank.mid" .}} {{template "layouts/blank.end" .}} {{end}}
