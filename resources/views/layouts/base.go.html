@@ -1,0 +1,60 @@
+{{define "layouts/base.start"}}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="theme-color" content="#060b1c" />
+        <meta name="android:theme-color" content="#060b1c" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#060b1c" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#060b1c" />
+        <meta name="description" content="AZ Finance">
+
+        <title>AZ Finance</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/fav/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/fav/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/fav/favicon-16x16.png">
+        <link rel="manifest" href="/assets/fav/site.webmanifest">
+        
+        <link rel="stylesheet" href="/assets/font.css" />
+        <link rel="stylesheet" href="/assets/bootstrap/bootstrap.min.css" />
+        <link rel="stylesheet" href="/assets/style.css" />
+
+        <style>
+            {{if .webview}}
+            header, footer {
+                display: none;
+            }
+            {{end}}
+        </style>
+    </head>
+    <body>
+        <header class="p-4">
+            <div class="container-lg">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <div class="pp" style="background-image: url(https://media.licdn.com/dms/image/D5603AQEp-jqOuCXqEg/profile-displayphoto-shrink_100_100/0/1688319261606?e=1694044800&v=beta&t=5FGNiRdovQLUA4irrQPnlF8ohpQWdOIz5-zbKxfjX10);"></div>
+                    </div>
+                    <div class="col text-center">
+                        <img src="/images/logo-b.png" height="50" alt="">
+                    </div>
+                    <div class="col text-end">
+                        <a href="/auth/sign-out" aria-label="sign out">
+                            <img src="/icons/so.png" height="25" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container-lg content mt-5 pt-4">{{end}} {{define "layouts/base.mid"}}</div>
+        <footer>
+            <div class="container-lg">
+            <!-- FOOTER -->
+            </div>
+        </footer>
+        <script src="/assets/sw.js"></script>
+        <script src="/assets/bootstrap/bootstrap.bundle.min.js"></script>
+        {{end}} {{define "layouts/base.end"}}
+    </body>
+</html>
+{{end}}

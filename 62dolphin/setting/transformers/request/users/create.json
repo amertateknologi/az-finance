@@ -1,0 +1,7 @@
+{
+    "email": "email|required",
+    "password": "required",
+    "name": "required",
+    "username": "",
+    "active": ""
+}

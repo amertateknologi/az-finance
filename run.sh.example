@@ -1,0 +1,7 @@
+#run go-shop
+echo "killing port 8081"
+sudo kill -9 $(sudo lsof -t -i:8081)
+echo "build az-finance"
+go build main.go
+echo "running az finance"
+nohup ./main &

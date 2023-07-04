@@ -1,0 +1,18 @@
+{
+    "id": "",
+    "parent_id": "",
+    "user_id": "",
+    "type_id": "",
+    "description": "",
+    "amount": "",
+    "balance": "",
+    "gain_percentage": "",
+    "created_at": "",
+    "belongs_to":{
+        "type":{
+            "table":"types",
+            "fk":"type_id",
+            "columns":["id", "name", "symbol"]
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{{define "layouts/blank.start"}}
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="theme-color" content="#060b1c" />
+        <meta name="android:theme-color" content="#060b1c" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#060b1c" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#060b1c" />
+        <meta name="description" content="AZ Finance">
+        
+        <title>AZ Finance</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/fav/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/fav/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/fav/favicon-16x16.png">
+        <link rel="manifest" href="/assets/fav/site.webmanifest">
+        
+        <link rel="stylesheet" href="/assets/font.css" />
+        <link rel="stylesheet" href="/assets/bootstrap/bootstrap.min.css" />
+        <link rel="stylesheet" href="/assets/style.css" />
+
+        <style>
+            {{if .webview}}
+            header, footer {
+                display: none;
+            }
+            {{end}}
+        </style>
+    </head>
+
+    <body>
+        <div class="container-lg content pt-md-5">{{end}} {{define "layouts/blank.mid"}}</div>
+        <script src="/assets/sw.js"></script>
+        <script src="/assets/bootstrap/bootstrap.bundle.min.js"></script>
+        {{end}} {{define "layouts/blank.end"}}
+    </body>
+</html>
+{{end}}

@@ -1,0 +1,122 @@
+{{define "pages/index"}} {{template "layouts/base.start" .}}
+
+<div class="me" id="app">
+    <div class="card main">
+        <div class="card-body p-5">
+            <div>Febriansyah</div>
+            <div class="pb-3">0898 2202 1991 0002</div>
+            <div>Investment Balance</div>
+            <div>
+                <span class="d-none d-sm-block">
+                    IDR << "97233000" | formatNumber >>
+                </span>
+                <span class="d-block d-sm-none">
+                    IDR << "97233000" | formatNumber >>
+                </span>
+            </div>
+        </div>
+        <div class="bg"></div>
+    </div>
+
+    <div class="row row-cols-2 mt-5 text-center">
+        <div class="col">
+            <a href="#" class="card" aria-label="top up">
+                <div class="card-body p-5">
+                    <img src="/icons/tp.png" height="25" alt="" />
+                    <div class="pt-3">Top Up</div>
+                </div>
+            </a>
+        </div>
+        <div class="col">
+            <a href="#" class="card" aria-label="withdraw">
+                <div class="card-body p-5">
+                    <img src="/icons/wd.png" height="25" alt="" />
+                    <div class="pt-3">Withdraw</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="pt-5 mt-4" style="font-size: 2.4rem; letter-spacing: 3px;">Histories</div>
+
+    <div class="transactions">
+        <table style="width: 100%">
+            <tbody>
+                <tr v-for="item in data" :key="item.id">
+                    <td class="d-none d-sm-table-cell"><img :src="`/icons/types/${item.type.id}.png`" height="30" alt="" /></td>
+                    <td>
+                        <div class="row row-cols-sm-2 row-cols-1 align-items-center">
+                            <div class="col">
+                                <div class="fw-bold"><< item.type.name >></div>
+                                <div><< item.description >></div>
+                                <div><< item.created_at | formatDateTime >></div>
+                            </div>
+                            <div class="col">
+                                <div :class="`pt-2 fw-bold text-${item.type.symbol == '+' ? 'success-emphasis' : 'danger'} text-sm-end`">
+                                    <div class="d-none d-sm-block">
+                                        IDR << item.amount | formatNumber >>
+                                    </div>
+                                    <div class="d-block d-sm-none">
+                                        IDR << item.amount | formatNumber >>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="d-table-cell d-sm-none"><img :src="`/icons/types/${item.type.id}.png`" height="30" alt="" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{{template "layouts/base.mid" .}}
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+    new Vue({
+        el: "#app",
+        delimiters: ["<<", ">>"],
+        data: {
+            data: [],
+        },
+        mounted() {
+            this.getData(); // Call the getData method on component mount (page load)
+        },
+        methods: {
+            getData() {
+                axios
+                    .get("/transactions")
+                    .then((response) => {
+                        this.data = response.data.data;
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            },
+        },
+        filters: {
+            formatNumberK(value) {
+                value = Math.abs(value)
+                return new Intl.NumberFormat().format(value/1000)+"K";
+            },
+            formatNumber(value) {
+                value = Math.abs(value)
+                return new Intl.NumberFormat().format(value);
+            },
+            formatDateTime(value) {
+                value = new Date(value)
+                const options = { day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false };
+                const formattedDate = value.toLocaleString('en-US', options);
+                const parts = formattedDate.split(', ');                
+                const [monthDay, year, time] = parts;
+                const [month, day] = monthDay.split(' ');
+                return day+" "+month+" "+year+" \267 "+time;
+            },
+        },
+    });
+</script>
+
+{{template "layouts/base.end" .}} {{end}}
