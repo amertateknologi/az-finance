@@ -36,6 +36,7 @@ func main() {
 		"add":     utils.Add,
 		"sub":     utils.Sub,
 		"explode": utils.ExplodeFunc,
+		"replace": utils.Replace,
 	}).ParseFiles(utils.Filewalk()...))
 	debugPrintLoadTemplate(html)
 
@@ -44,10 +45,10 @@ func main() {
 	r.Static("/images", "./public/images")
 	r.Static("/icons", "./public/icons")
 
-	r.Use(middlewares.WebviewMiddleware(), middlewares.SessionMiddleware())
+	r.Use(middlewares.WebviewMiddleware())
 
 	ctrl := controllers.IndexController{}
-	r.GET("", ctrl.Get())
+	r.GET("", middlewares.SessionMiddleware(), ctrl.Get())
 
 	group = r.Group("/auth")
 	{

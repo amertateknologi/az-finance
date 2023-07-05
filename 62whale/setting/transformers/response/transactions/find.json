@@ -13,6 +13,17 @@
             "table":"types",
             "fk":"type_id",
             "columns":["id", "name", "symbol"]
+        },
+        "user":{
+            "table":"users",
+            "fk":"user_id",
+            "columns":["name", "slug"]
         }
+    },
+    "filterable":{
+        "user.slug":"belongs_to"
+    },
+    "summary": {
+        "total": "amount"
     }
 }

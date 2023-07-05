@@ -71,3 +71,7 @@ func Sub(a, b int) int {
 func ExplodeFunc(input string, separator string) []string {
 	return strings.Split(input, separator)
 }
+
+func Replace(s, old, new string) string {
+	return strings.Replace(s, old, new, -1)
+}

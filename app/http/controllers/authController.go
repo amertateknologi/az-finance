@@ -30,6 +30,9 @@ func (ctrl *AuthController) SignIn() gin.HandlerFunc {
 			session.Set("user.email", l.Data.User.Email)
 			session.Set("user.id", l.Data.User.Id)
 			session.Set("user.name", l.Data.User.Name)
+			session.Set("user.slug", l.Data.User.Slug)
+			session.Set("user.img_url", l.Data.User.ImgUrl)
+			session.Set("user.phone_number", l.Data.User.PhoneNumber)
 
 			if err := session.Save(); err != nil {
 				fmt.Println(err.Error())

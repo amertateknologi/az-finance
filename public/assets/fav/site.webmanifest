@@ -14,5 +14,23 @@
     "theme_color": "#6935FC",
     "background_color": "#6935FC",
 	"display": "standalone",
-    "start_url": "/"
+    "start_url": "/",
+    "description": "AZ Finance, a private investment manager.",
+	"screenshots": [
+		{
+			"src": "/assets/screenshots/s1.jpg",
+			"sizes": "1080x2340",
+			"type": "image/jpeg"
+		},
+		{
+			"src": "/assets/screenshots/s2.jpg",
+			"sizes": "1080x2340",
+			"type": "image/jpeg"
+		},
+		{
+			"src": "/assets/screenshots/t1.jpg",
+			"sizes": "1812×2176",
+			"type": "image/jpeg"
+		}
+	]
 }

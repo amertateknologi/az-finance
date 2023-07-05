@@ -20,9 +20,12 @@ type Auth struct {
 }
 
 type User struct {
-	Email string `json:"email"`
-	Id    int    `json:"id"`
-	Name  string `json:"name"`
+	Email       string `json:"email"`
+	Id          int    `json:"id"`
+	Name        string `json:"name"`
+	Slug        string `json:"slug"`
+	ImgUrl      string `json:"img_url"`
+	PhoneNumber string `json:"phone_number"`
 }
 
 type AuthResponse struct {

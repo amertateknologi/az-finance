@@ -33,14 +33,14 @@
             <div class="container-lg">
                 <div class="row align-items-center">
                     <div class="col">
-                        <div class="pp" style="background-image: url(https://media.licdn.com/dms/image/D5603AQEp-jqOuCXqEg/profile-displayphoto-shrink_100_100/0/1688319261606?e=1694044800&v=beta&t=5FGNiRdovQLUA4irrQPnlF8ohpQWdOIz5-zbKxfjX10);"></div>
+                        <div class="pp" style="background-image: url('{{.userData.ImgUrl}}'); background-size: cover;"></div>
                     </div>
                     <div class="col text-center">
-                        <img src="/images/logo-b.png" height="50" alt="">
+                        <img src="/images/logo-b.png" loading="lazy" height="50" alt="">
                     </div>
                     <div class="col text-end">
                         <a href="/auth/sign-out" aria-label="sign out">
-                            <img src="/icons/so.png" height="25" alt="">
+                            <img src="/icons/so.png" loading="lazy" height="25" alt="">
                         </a>
                     </div>
                 </div>
@@ -55,25 +55,13 @@
 
         <script type="module" src="/assets/pwa.js"></script>
         <script src="/assets/sw.js"></script>
-        <!-- <script src="/assets/bootstrap/bootstrap.bundle.min.js"></script> -->
-
-        <pwa-install id="pwa-install" manifest-url="manifest.json"></pwa-install>
+        <pwa-install id="pwa-install" manifest-url="/assets/fav/site.webmanifest"></pwa-install>
         <script type="text/javascript">
             var pwaInstall = document.getElementById("pwa-install");
-    
-            const getRelated = () => {
-                pwaInstall.getInstalledRelatedApps().then(
-                    (result) => {
-                        logMessage(result.toString() || 'None');
-                    }
-                )
-            }
-    
-            const forceApple = (apple = true) => {
-                pwaInstall.isAppleMobilePlatform = apple;
-                pwaInstall.hideDialog();
-                pwaInstall.showDialog();
-            }
+            pwaInstall.addEventListener('pwa-install-available-event', (event) => {
+                pwaInstall.showDialog()
+                console.log(event.detail.message)
+            });
         </script>
         {{end}} {{define "layouts/base.end"}}
     </body>

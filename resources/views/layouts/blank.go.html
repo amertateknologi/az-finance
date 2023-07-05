@@ -31,8 +31,16 @@
 
     <body>
         <div class="container-lg content pt-md-5">{{end}} {{define "layouts/blank.mid"}}</div>
+        <script type="module" src="/assets/pwa.js"></script>
         <script src="/assets/sw.js"></script>
-        <script src="/assets/bootstrap/bootstrap.bundle.min.js"></script>
+        <pwa-install id="pwa-install" manifest-url="/assets/fav/site.webmanifest"></pwa-install>
+        <script type="text/javascript">
+            var pwaInstall = document.getElementById("pwa-install");
+            pwaInstall.addEventListener('pwa-install-available-event', (event) => {
+                pwaInstall.showDialog()
+                console.log(event.detail.message)
+            });
+        </script>
         {{end}} {{define "layouts/blank.end"}}
     </body>
 </html>

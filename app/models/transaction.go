@@ -19,11 +19,15 @@ type Transaction struct {
 }
 
 type TransactionsResponse struct {
-	Status  string        `json:"status"`
-	Message string        `json:"message"`
-	Data    []Transaction `json:"data"`
+	Status  string             `json:"status"`
+	Message string             `json:"message"`
+	Data    []Transaction      `json:"data"`
+	Summary TransactionSummary `json:"summary"`
 }
 
+type TransactionSummary struct {
+	Total int `json:"total"`
+}
 type TransactionResponse struct {
 	Status  string      `json:"status"`
 	Message string      `json:"message"`
