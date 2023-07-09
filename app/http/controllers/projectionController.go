@@ -6,11 +6,11 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type TransactionController struct{}
+type ProjectionController struct{}
 
-func (ctrl *TransactionController) Get() gin.HandlerFunc {
+func (ctrl *ProjectionController) Get() gin.HandlerFunc {
 	return func(ctx *gin.Context) {
-		model := models.Transaction{}
+		model := models.Projection{}
 		resp := model.FindAll(ctx)
 		ctx.JSON(200, resp)
 	}

@@ -1,0 +1,18 @@
+{
+    "id": "",
+    "user_id": "",
+    "projection": "",
+    "actual": "",
+    "year": "",
+    "month": "",
+    "belongs_to":{
+        "user":{
+            "table":"users",
+            "fk":"user_id",
+            "columns":["name", "slug"]
+        }
+    },
+    "filterable":{
+        "user.slug":"belongs_to"
+    }
+}

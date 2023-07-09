@@ -64,8 +64,11 @@ func main() {
 		group.GET("", ctrl.Get())
 	}
 
-	//r.Run("192.168.18.174:8080")
-	//r.Run("127.0.0.1:8081")
+	group = r.Group("/projections")
+	{
+		ctrl := controllers.ProjectionController{}
+		group.GET("", ctrl.Get())
+	}
 
 	r.Run(configs.HTTPServerAddress)
 }

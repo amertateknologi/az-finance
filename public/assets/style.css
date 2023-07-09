@@ -73,6 +73,21 @@ header {
     border-radius: 9px;
 }
 
+/* .me .buttons .col:nth-child(1) .card,
+.me .buttons .col:nth-child(4) .card {
+    border-radius: 3px 20px 3px 20px;
+}
+
+.me .buttons .col:nth-child(2) .card,
+.me .buttons .col:nth-child(3) .card {
+    border-radius: 20px 3px 20px 3px;
+}
+
+.me .buttons .col:nth-child(1) .card,
+.me .buttons .col:nth-child(2) .card {
+    margin-bottom: 1.6rem;
+} */
+
 .me a.card {
     color: #ffffff;
     text-decoration: none;
@@ -80,7 +95,7 @@ header {
 
 .me td {
     padding: 32px 0;
-    border-bottom: 2px solid rgba(105, 53, 251, 0.5);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
     font-size: 2rem;
     white-space: nowrap;
 }
@@ -94,6 +109,7 @@ header {
 
 .me tr > td .col:nth-child(1) > div:nth-child(1) {
     letter-spacing: 1px;
+    color: #fff;
 }
 
 .me tr > td .col:nth-child(1) > div:nth-child(2) {
@@ -122,6 +138,37 @@ header {
 
 .text-success-emphasis {
     color: green !important;
+}
+
+.me .capital .pills{
+    margin-left: 6px;
+}
+
+.me .capital .pills > div {
+    display: inline-block;
+    margin-right: 12px;
+    margin-top: 2.4rem;
+}
+
+.me .capital .pills span {
+    display: inline-block;
+    height: 3px;
+    width: 3rem;
+    border-radius: 5px;
+    top: -4px;
+    position: relative;
+}
+
+.me .capital .pills > div:nth-child(1) span {
+    background-color: #6935FC;
+}
+
+.me .capital .pills > div:nth-child(2) span {
+    background-color: #fff;
+}
+
+.me .capital .pills > div:nth-child(1) {
+    color: #6935FC;
 }
 
 /* sign-in */

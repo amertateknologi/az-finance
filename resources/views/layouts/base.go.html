@@ -18,7 +18,7 @@
         
         <link rel="stylesheet" href="/assets/font.css" />
         <link rel="stylesheet" href="/assets/bootstrap/bootstrap.min.css" />
-        <link rel="stylesheet" href="/assets/style.css" />
+        <link rel="stylesheet" href="/assets/style.css?v=1.1" />
 
         <style>
             {{if .webview}}
@@ -46,16 +46,17 @@
                 </div>
             </div>
         </header>
-        <div class="container-lg content" style="padding-top: 12.5rem;">{{end}} {{define "layouts/base.mid"}}</div>
+
+        <div class="container-lg content" style="padding-top: 11rem;">{{end}} {{define "layouts/base.mid"}}</div>
+
         <footer>
-            <div class="container-lg">
-            <!-- FOOTER -->
-            </div>
+            <div class="container-lg"></div>
         </footer>
 
         <script type="module" src="/assets/pwa.js"></script>
         <script src="/assets/sw.js"></script>
         <pwa-install id="pwa-install" manifest-url="/assets/fav/site.webmanifest"></pwa-install>
+
         <script type="text/javascript">
             var pwaInstall = document.getElementById("pwa-install");
             pwaInstall.addEventListener('pwa-install-available-event', (event) => {

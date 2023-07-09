@@ -37,18 +37,6 @@ type TransactionResponse struct {
 func (model *Transaction) FindAll(c *gin.Context) *TransactionsResponse {
 	var queries string = "?"
 
-	if c.Param("product-slug") != "" {
-		queries = queries + "slug=" + c.Param("product-slug") + "&"
-	}
-
-	if c.Query("page") == "" {
-		queries = queries + "page=1&"
-	}
-
-	if c.Query("per_page") == "" {
-		queries = queries + "per_page=12&"
-	}
-
 	queries = queries + removeEmptyQueries(c.Request.URL.Query())
 
 	response := Get(config.Data.WhaleAddress + "/api/v1/catalog/transactions" + queries)
